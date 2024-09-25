@@ -1,27 +1,57 @@
-# Sandbox
+# Intro
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
+This project integrates the Gup Design System web components into Angular. By using the web components approach, the components remain framework-agnostic, making it easier to integrate into different frontend frameworks or libraries.
 
-## Development server
+## Web Components Setup
 
-Run `ng serve` for a dev server. Navigate to http://localhost:4200. The application will automatically reload if you change any of the source files.
+Import Web Components in index.html: Web components need to be imported directly into the index.html file. This can be done by including the following script in the <head> tag of src/index.html:
+```html
+<script type="module" src="https://develop.omangup.me/nexus/repository/gup-raw-repo/gup-ds-components/latest/components.js"></script>
+```
+## Importing Styles
 
-## Code scaffolding
+To maintain a consistent look and feel across the project, the Gup Design System styles can be imported. You can include global CSS styles for the components in your src/styles.css or src/styles.scss file:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```css
+@import url('https://develop.omangup.me/nexus/repository/gup-raw-repo/gup-ds-components/latest/styles.css');
+```
 
-## Build
+## Configure Angular to Recognize Custom Elements
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+In src/app/app.module.ts, add the CUSTOM_ELEMENTS_SCHEMA to the schemas array:
 
-## Running unit tests
+```ts
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule],
+  providers: [],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],  // Added this line
+})
+export class AppModule {}
+```
 
-## Running end-to-end tests
+## TypeScript Configuration for Custom Elements
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+By default, TypeScript will throw errors when it encounters unknown HTML tags (like custom web components). To suppress these errors, a custom TypeScript declaration file was created at src/custom-elements.d.ts:
 
-## Further help
+```ts
+declare namespace JSX {
+  interface IntrinsicElements {
+    [elemName: `gup-${string}`]: any;
+  }
+}
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Usage
+
+Once the setup is complete, you can use Gup web components in your Angular components just like any other HTML elements.
+
+```html
+<gup-input-field label="Enter your email" type="email" placeholder="Email"></gup-input-field>
+<gup-button label="Submit"></gup-button>
+```

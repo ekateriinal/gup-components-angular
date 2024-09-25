@@ -1,0 +1,105 @@
+<section class="form-template">
+  <header class="header">
+    <nav class="wizard-bar">
+      <div class="wizard-container">
+        <div class="wizard-action">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/95b71aebc359c4828ae45ee3d841e79bea94b8c93b2b20c10ab2dcfae46133c2?placeholderIfAbsent=true&apiKey=dfb9bf0bf20a436cb1b34cc30fc2e4a7"
+            alt=""
+            class="wizard-icon"
+          />
+          <span class="wizard-label">Save & exit</span>
+        </div>
+        <div class="wizard-action">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/615b1ff45810ed86def7ea1405afee9e523b7eb66aa2c23752ec8235bbd91045?placeholderIfAbsent=true&apiKey=dfb9bf0bf20a436cb1b34cc30fc2e4a7"
+            alt=""
+            class="wizard-icon"
+          />
+          <span class="wizard-label">Do you need help?</span>
+        </div>
+      </div>
+    </nav>
+    <div class="service-header">
+      <div class="service-content">
+        <h1 class="service-title">Service name</h1>
+      </div>
+    </div>
+  </header>
+
+  <main class="form-wrapper">
+    <div class="form-column">
+      <div class="form-step">
+        <div class="step-indicator">
+          <div class="step-link">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/0309ea95d6fbdf8ba314f9caac8cc1eec0836383ca4db8af1af9377b71a22315?placeholderIfAbsent=true&apiKey=dfb9bf0bf20a436cb1b34cc30fc2e4a7"
+              alt=""
+              class="wizard-icon"
+            />
+            <span class="step-number">Step 2 of 5</span>
+          </div>
+        </div>
+        <div class="step-header">
+          <h2 class="step-title">Step title</h2>
+          <p class="step-description">
+            Placeholder for step description. Below is example form.
+          </p>
+        </div>
+      </div>
+
+      <form class="form-container">
+        <gup-track gap="4" direction="vertical">
+          <dl class="form-group">
+            <gup-track gap="2" direction="vertical">
+              <dt class="form-label">Name</dt>
+              <dd>Name</dd>
+            </gup-track>
+          </dl>
+          <dl class="form-group">
+            <gup-track gap="2" direction="vertical">
+              <dt class="form-label">Civil ID</dt>
+              <dd>180375</dd>
+            </gup-track>
+          </dl>
+          <gup-input-field
+            type="tel"
+            name="your-message"
+            placeholder="+96812345678"
+            pattern="\+968[0-9]{8}"
+          >
+            Mobile Number
+          </gup-input-field>
+        </gup-track>
+      </form>
+    </div>
+  </main>
+
+  <footer class="form-footer">
+    <div class="footer-container">
+      <div class="footer-buttons">
+        <gup-button appearance="secondary" kind="button" type="button">
+          Cancel
+          <gup-icon
+            slot="icon-start"
+            icon-name="arrow-back"
+            height="20"
+            width="20"
+          ></gup-icon>
+        </gup-button>
+      </div>
+      <div class="footer-buttons">
+        <gup-button kind="button" type="button" appearance="primary" disabled>
+          Continue
+          <gup-icon
+            slot="icon-end"
+            icon-name="arrow-back"
+            height="20"
+            width="20"
+            class="arrow-back"
+          ></gup-icon>
+        </gup-button>
+      </div>
+    </div>
+  </footer>
+</section>
